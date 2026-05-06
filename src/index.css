@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+  /* Bright, graphical, cartoony color palette */
+  --bg-main: #38bdf8; /* Bright Sky Blue */
+  --bg-panel: #ffffff; /* Crisp white */
+  
+  --cookie-primary: #f59e0b; /* Golden Cookie */
+  --cookie-secondary: #fcd34d; /* Bright Yellow */
+  
+  --accent-primary: #ec4899; /* Hot Pink */
+  --accent-secondary: #84cc16; /* Lime green */
+  --danger: #ef4444; /* Bright Red */
+  
+  --text-main: #334155;
+  --text-heading: #0f172a;
+  
+  --border-thick: 4px solid #1e293b;
+  --shadow-chunky: 6px 6px 0px rgba(15, 23, 42, 0.8);
+  
+  --font-main: 'Nunito', sans-serif;
+  --font-heading: 'Fredoka', cursive;
+  
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background-color: var(--bg-main);
+  background-image: radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.15) 20%, transparent 20%),
+                    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.15) 20%, transparent 20%);
+  background-size: 150px 150px;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: var(--font-heading);
+  color: var(--text-heading);
+}
+
+button {
+  font-family: var(--font-heading);
+  cursor: pointer;
+  border: var(--border-thick);
+  border-radius: 12px;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0px rgba(15, 23, 42, 0.8);
+}
+
+.cartoon-panel {
+  background: var(--bg-panel);
+  border: var(--border-thick);
+  box-shadow: var(--shadow-chunky);
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.title-text {
+  color: var(--accent-primary);
+  font-size: 3rem;
+  margin-bottom: 5px;
+  text-shadow: 2px 2px 0px #1e293b;
+}
+
+.subtitle-text {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-main);
+}

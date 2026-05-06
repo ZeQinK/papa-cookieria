@@ -1,0 +1,98 @@
+.game-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--bg-main);
+  padding: 10px;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-panel);
+  border: var(--border-thick);
+  border-radius: 16px;
+  padding: 15px 25px;
+  box-shadow: var(--shadow-chunky);
+  margin-bottom: 15px;
+  flex-shrink: 0;
+}
+
+.player-info h2 {
+  color: var(--accent-primary);
+  margin-bottom: 5px;
+  font-size: 2rem;
+}
+
+.player-name {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--text-main);
+}
+
+.game-stats {
+  display: flex;
+  gap: 20px;
+}
+
+.stat-box {
+  background: var(--cookie-secondary);
+  border: var(--border-thick);
+  border-radius: 8px;
+  padding: 5px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 3px 3px 0px rgba(15,23,42,0.8);
+}
+
+.stat-box .label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.stat-box .value {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--text-heading);
+}
+
+.station-container {
+  flex-grow: 1;
+  background: #fff;
+  border: var(--border-thick);
+  border-radius: 16px;
+  box-shadow: var(--shadow-chunky);
+  padding: 20px;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.station-nav {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  padding: 15px 0 5px 0;
+  flex-shrink: 0;
+}
+
+.nav-btn {
+  background: #cbd5e1;
+  color: var(--text-heading);
+  padding: 15px 30px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  flex: 1;
+  max-width: 250px;
+  box-shadow: 3px 3px 0px rgba(15,23,42,0.3);
+}
+
+.nav-btn.active {
+  background: var(--accent-secondary);
+  box-shadow: 4px 4px 0px rgba(15,23,42,0.8);
+  transform: translateY(-5px);
+}

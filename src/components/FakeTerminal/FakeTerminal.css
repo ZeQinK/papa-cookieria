@@ -1,0 +1,92 @@
+.terminal-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 550px;
+  background: #000;
+  border: 4px solid #333;
+  box-shadow: 10px 10px 0px rgba(0,0,0,0.8);
+  z-index: 1000;
+  font-family: 'Courier New', Courier, monospace;
+  color: #32cd32;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.terminal-header {
+  background: #333;
+  color: #fff;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-main);
+  font-weight: bold;
+}
+
+.terminal-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 0;
+  box-shadow: none;
+}
+
+.terminal-close:hover {
+  color: #aaa;
+  transform: none;
+  box-shadow: none;
+}
+
+.terminal-body {
+  padding: 25px;
+}
+
+.terminal-instructions {
+  margin-bottom: 25px;
+  color: #fff;
+  font-family: var(--font-main);
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.terminal-codebox {
+  background: #111;
+  border: 1px solid #555;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.copy-btn {
+  background: #555;
+  color: #fff;
+  border: 1px solid #777;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+}
+
+.copy-btn:hover {
+  background: #777;
+}
+
+.terminal-input-area {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.terminal-input-area input {
+  background: transparent;
+  border: none;
+  color: #32cd32;
+  font-family: 'Courier New', Courier, monospace;
+  width: 100%;
+  outline: none;
+  font-size: 1.1rem;
+}

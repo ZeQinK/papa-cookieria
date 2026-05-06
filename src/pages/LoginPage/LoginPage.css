@@ -1,0 +1,138 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.login-panel {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+  margin-top: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text-heading);
+}
+
+.form-group input {
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: var(--border-thick);
+  background: #f8fafc;
+  color: var(--text-main);
+  font-family: var(--font-main);
+  font-weight: 700;
+  outline: none;
+  font-size: 1rem;
+  box-shadow: inset 3px 3px 0px rgba(0,0,0,0.05);
+  transition: var(--transition-fast);
+}
+
+.form-group input:focus {
+  background: #fff;
+  border-color: var(--accent-primary);
+  box-shadow: inset 0px 0px 0px rgba(0,0,0,0);
+}
+
+.start-btn {
+  background: var(--cookie-primary);
+  color: #fff;
+  padding: 16px;
+  font-size: 1.4rem;
+  margin-top: 15px;
+  box-shadow: var(--shadow-chunky);
+}
+
+.start-btn:hover {
+  background: var(--cookie-secondary);
+  color: var(--text-heading);
+}
+
+.cookie-dialog {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
+  background: #fff7ed;
+  border: 4px dashed var(--danger);
+  padding: 25px;
+  border-radius: 16px;
+  margin-top: 20px;
+}
+
+.cookie-dialog h2 {
+  color: var(--danger);
+  font-size: 2.2rem;
+}
+
+.small-text {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.cookie-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.accept-btn {
+  background: var(--accent-secondary);
+  color: var(--text-heading);
+  padding: 20px 30px;
+  font-size: 1.8rem;
+  width: 100%;
+  box-shadow: var(--shadow-chunky);
+  animation: pulse-button 1.5s infinite;
+}
+
+.accept-btn:hover {
+  background: #bef264;
+}
+
+.decline-btn {
+  background: transparent;
+  color: #94a3b8;
+  border: none;
+  font-size: 0.85rem;
+  font-family: var(--font-main);
+  text-decoration: underline;
+  padding: 5px;
+  box-shadow: none;
+}
+
+.decline-btn:hover {
+  color: #64748b;
+}
+
+.decline-btn:active {
+  transform: none;
+  box-shadow: none;
+}
+
+@keyframes pulse-button {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
