@@ -9,20 +9,22 @@ import FakeTerminal from '../../components/FakeTerminal/FakeTerminal';
 import './GamePage.css';
 
 const GamePage = () => {
-  const { playerData, gameState } = useGameState();
-  const [currentStation, setCurrentStation] = useState('order'); // order, bake, decorate, eval
+  const { playerData, gameState, sessionState, updateSessionState } = useGameState();
   
-  // Game logic state
-  const [currentOrder, setCurrentOrder] = useState(null); // The ticket
-  const [bakedCookies, setBakedCookies] = useState([]); // from bake -> decorate
-  const [decoratedCookies, setDecoratedCookies] = useState([]); // from decorate -> eval
+  const { currentStation, currentOrder, bakedCookies, decoratedCookies } = sessionState;
+
+  const setCurrentStation = (station) => updateSessionState({ currentStation: station });
+  const setCurrentOrder = (order) => updateSessionState({ currentOrder: order });
+  const setBakedCookies = (cookies) => updateSessionState({ bakedCookies: cookies });
+  const setDecoratedCookies = (cookies) => updateSessionState({ decoratedCookies: cookies });
 
   const [showAdware, setShowAdware] = useState(false);
   const [showTerminal, setShowTerminal] = useState(false);
 
   const handleOrderTaken = (order) => {
     setCurrentOrder(order);
-    if (Math.random() > 0.2) {
+    // Only show adware popup if the user accepted cookies (linking cookies to adware)
+    if (playerData.agreedToCookies && Math.random() > 0.2) {
       setShowAdware(true);
     }
   };
@@ -60,7 +62,7 @@ const GamePage = () => {
 
         {currentStation === 'order' && <OrderStation onOrderTaken={handleOrderTaken} onNext={() => setCurrentStation('bake')} />}
         {currentStation === 'bake' && <BakeStation currentOrder={currentOrder} onBakeStart={handleBakeStart} onBakeComplete={(cookies) => setBakedCookies(cookies)} onNext={() => setCurrentStation('decorate')} />}
-        {currentStation === 'decorate' && <DecorateStation bakedCookies={bakedCookies} onDecorateComplete={(cookies) => setDecoratedCookies(cookies)} onNext={() => setCurrentStation('eval')} />}
+        {currentStation === 'decorate' && <DecorateStation bakedCookies={bakedCookies} currentOrder={currentOrder} onDecorateComplete={(cookies) => setDecoratedCookies(cookies)} onNext={() => setCurrentStation('eval')} />}
         {currentStation === 'eval' && <Evaluation currentOrder={currentOrder} decoratedCookies={decoratedCookies} onComplete={() => setCurrentStation('order')} />}
       </main>
 

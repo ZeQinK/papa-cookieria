@@ -7,6 +7,7 @@ const AdwarePopup = ({ onClose }) => {
   const { playerData } = useGameState();
   const navigate = useNavigate();
   const [position, setPosition] = useState({ top: '20%', left: '20%' });
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     setPosition({
@@ -19,15 +20,25 @@ const AdwarePopup = ({ onClose }) => {
     navigate('/edu/adware');
   };
 
+  const handleCloseClick = (e) => {
+    e.stopPropagation();
+    onClose();
+  };
+
   // If user accepted cookies, use their PII for targeted ads. Otherwise, generic.
   const usePII = playerData.agreedToCookies;
 
   return (
     <div className="adware-overlay">
-      <div className="adware-container" style={{ top: position.top, left: position.left }}>
+      <div
+        className={`adware-container ${paused ? 'adware-paused' : ''}`}
+        style={{ top: position.top, left: position.left }}
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
         <div className="adware-header">
           <span>!!! SYSTEM ALERT !!!</span>
-          <button className="adware-close" onClick={handleClick}>✕</button>
+          <button className="adware-close" onClick={handleCloseClick}>✕</button>
         </div>
         <div className="adware-body">
           <h3 className="adware-flash">🎉 YOU WON! 🎉</h3>
