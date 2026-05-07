@@ -19,6 +19,15 @@
   flex-direction: column;
   border-radius: 8px;
   overflow: hidden;
+  animation: drift-popup 2s ease-in-out infinite;
+}
+
+/* Pause ALL animations when hovering so the close button is easy to click */
+.adware-container.adware-paused,
+.adware-container.adware-paused .adware-body,
+.adware-container.adware-paused .adware-flash,
+.adware-container.adware-paused .adware-btn {
+  animation-play-state: paused !important;
 }
 
 .adware-header {
@@ -30,6 +39,7 @@
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
+  /* Header does NOT shake — remains stable for clicking */
 }
 
 .adware-close {
@@ -49,6 +59,7 @@
   cursor: pointer;
   z-index: 1001;
   flex-shrink: 0;
+  position: relative;
 }
 
 .adware-close:hover {
@@ -86,6 +97,15 @@
   border: 3px solid #000;
   box-shadow: 4px 4px 0px #000;
   animation: pulse-button 0.5s infinite;
+}
+
+/* Gentle drift of the whole popup — subtle enough to allow clicking */
+@keyframes drift-popup {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(4px, -3px); }
+  50%  { transform: translate(-3px, 4px); }
+  75%  { transform: translate(3px, 2px); }
+  100% { transform: translate(0, 0); }
 }
 
 @keyframes shake-body {

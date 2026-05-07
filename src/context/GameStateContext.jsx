@@ -17,6 +17,13 @@ export const GameStateProvider = ({ children }) => {
     day: 1,
   });
 
+  const [sessionState, setSessionState] = useState({
+    currentStation: 'order',
+    currentOrder: null,
+    bakedCookies: [],
+    decoratedCookies: [],
+  });
+
   const [hasSeenAdwareEdu, setHasSeenAdwareEdu] = useState(false);
   const [hasSeenFilelessEdu, setHasSeenFilelessEdu] = useState(false);
 
@@ -28,10 +35,15 @@ export const GameStateProvider = ({ children }) => {
     setGameState(prev => ({ ...prev, ...data }));
   };
 
+  const updateSessionState = (data) => {
+    setSessionState(prev => ({ ...prev, ...data }));
+  };
+
   return (
     <GameStateContext.Provider value={{
       playerData, updatePlayerData,
       gameState, updateGameState,
+      sessionState, updateSessionState,
       hasSeenAdwareEdu, setHasSeenAdwareEdu,
       hasSeenFilelessEdu, setHasSeenFilelessEdu
     }}>
